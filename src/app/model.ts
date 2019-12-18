@@ -1,21 +1,25 @@
-export class Model{
-   user;
-   items;
-   constructor(){
-       this.user = "Álvaro";
-       this.items = [];
+export class Model {
+    user;
+    itens;
+    dataAtual: Date;
+    constructor() {
+   this.itens = []
+    }
+   public sortBydueDate():void{
+   this.itens.sort((a:TodoItem, b:TodoItem)=>{
+   return +new Date(a.dataTermino)- +new Date (b.dataTermino);
+     });
    }
 }
-export class TodoItem{
-   action;
-   done;
-   priority;
-   data: Date;
-   constructor(action, done, priority, data){
-       this.action=action;
-       this.done=done;
-       this.priority=priority;
-       this.data=data;
-   }
-
+export class TodoItem {
+    action;
+    feito;
+    prioridade;
+    dataTermino: Date;
+    constructor(action, feito, prioridade, dataTermino) {
+        this.action = action;
+        this.feito = feito;
+        this.prioridade = prioridade;
+        this.dataTermino = dataTermino;
+    }
 }
